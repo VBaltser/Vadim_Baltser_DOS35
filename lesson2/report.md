@@ -60,3 +60,54 @@ git show --stat
 ```
 
 ![Скриншот](screens/l2-t4.png)
+
+## Task 5-6. Reset --hard
+
+```
+git add .
+git commit -m "commit for task 5"
+```
+
+![Скриншот](screens/l2-t5.png)
+
+```
+git branch lesson-2 HEAD
+git reset --hard HEAD~1
+git log --oneline --decorate -5
+git log --oneline lesson-2 -5
+```
+
+![Скриншот](screens/l2-t6.png)
+
+## Task 7-8 . Checkout
+
+Создал файл и закоммитил его.
+
+```
+echo "task 7" >> lesson2/file.txt
+git add lesson2/file.txt
+git commit -m "local change"
+```
+
+![Скриншот](screens/l2-t7-1.png)
+
+Внес изменения в файл и закомитил их
+
+```
+echo "some local changes" >> lesson2/file.txt
+git add lesson2/file.txt
+git commit -m "local change 2"
+```
+
+![Скриншот](screens/l2-t7-5.png)
+
+![Скриншот](screens/l2-t7-2.png)
+
+Восставновил файл к состоянию предыдущего коммита
+
+```
+git rev-parse HEAD~1
+git checkout b0f9e05a94ad844647046c6212e43982dfc4b65e -- lesson2/file.txt
+```
+
+![Скриншот](screens/l2-t7-6.png)
