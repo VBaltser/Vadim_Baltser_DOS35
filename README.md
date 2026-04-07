@@ -1,1 +1,0 @@
-# Vadim_Baltser_DOS35
