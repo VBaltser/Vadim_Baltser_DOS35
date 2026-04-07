@@ -1,8 +1,8 @@
 # Lesson 2
 
 ## Task 0. Подключение Git-репозитория.
-1) Создал SSH-ключ в github.
-2) Создал файл с ssh-ключом `git_tms` в `/home/vadim/ssh/git_tms`
+1) Создал SSH-ключ `git_tms` в `/home/vadim/ssh/git_tms`
+2) Добавил ключ в github
 3) Создал config-файл в .ssh
 ```
 Host github.com
