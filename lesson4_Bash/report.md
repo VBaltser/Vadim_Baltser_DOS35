@@ -47,4 +47,4 @@
 
 `sudo systemctl status lesson4.service`
 
-![Скриншот](screens/l4-t4-3.png)
+![Скриншот](screens/l4-t4-4.png)
