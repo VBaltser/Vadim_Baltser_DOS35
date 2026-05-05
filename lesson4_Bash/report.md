@@ -2,7 +2,24 @@
 
 ## Task 1. Первый bash-скрипт
 
-Создал файл task1.sh скриптом. Результат выполнения скрипта:
+Создал файл task1.sh скриптом. 
+
+```
+#!/usr/bin/env bash
+
+echo "Current date and time:"
+date "+%Y-%m-%d %H:%M:%S"
+echo
+
+echo "Disk usage:"
+df -h
+echo
+
+echo "Free memory:"
+free -h
+```
+
+Результат выполнения скрипта:
 
 ![Скриншот](screens/l4-t1.png)
 
