@@ -2,6 +2,6 @@
 
 int main(void)
 {
-    puts("HELLO Ubuntu");
+    printf("HELLO Ubuntu");
     return 0;
 }
