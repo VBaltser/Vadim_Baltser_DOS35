@@ -26,3 +26,50 @@ sudo systemctl status nginx
 
 ## Настройка nginx
 
+Создал каталог для сайта и положил в него `index.html`
+
+```
+sudo mkdir -p /var/www/tms.by
+sudo cp ~/git/Vadim_Baltser_DOS35/lesson15_nginx/index.html /var/www/tms.by/index.html
+```
+
+Настроил конфиг следующим образом:
+
+```nginx
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/tms.by;
+
+	server_name tms.by;
+
+	index index.html;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
+```
+
+Проверяю на корерктность конфиг и перезаграю его в nginx
+
+```
+sudo nginx -t
+sudo nginx -s reload
+```
+
+![Скриншот](screens/l15-3.png)
+
+Проверка на локальной машине (loopback):
+
+![Скриншот](screens/l15-4.png)
+
+Проверка на хостовой машине (ip vm):
+
+![Скриншот](screens/l15-5.png)
+
+## Настройка hosts
+
+Сейчас адрес tms.by в браузере отправляет на сайт сантехника в Минске.
+
