@@ -77,10 +77,15 @@ sudo nginx -s reload
 
 `127.0.0.1 localhost tms.by`
 
-Теперь по пути http:/tms.by открывается index.html 
+Теперь по пути http:/tms.by открывается index.html
+Пришлось в браузере отключить DNS over HTTPS, иначе упорно открывал сайт с сантехником.
 
 ![Скриншот](screens/l15-6.png)
 
-На хостовой машине (Windows) 
+На хостовой машине (Windows) в `C:\Windows\System32\drivers\etc\hosts` добавил запись
 
+`192.168.1.177 tms.by`
 
+![Скриншот](screens/l15-7.png)
+
+Теперь по пути http:/tms.by открывается index.html 
