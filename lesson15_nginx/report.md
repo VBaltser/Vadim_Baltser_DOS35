@@ -52,7 +52,7 @@ server {
 }
 ```
 
-Проверяю на корерктность конфиг и перезаграю его в nginx
+Проверяю на корерктность конфиг и перезагружаю его в nginx
 
 ```
 sudo nginx -t
@@ -77,7 +77,7 @@ sudo nginx -s reload
 
 `127.0.0.1 localhost tms.by`
 
-Теперь по пути http:/tms.by открывается index.html
+Теперь по пути http://tms.by открывается index.html.
 Пришлось в браузере отключить DNS over HTTPS, иначе упорно открывал сайт с сантехником.
 
 ![Скриншот](screens/l15-6.png)
@@ -88,4 +88,4 @@ sudo nginx -s reload
 
 ![Скриншот](screens/l15-7.png)
 
-Теперь по пути http:/tms.by открывается index.html 
+Теперь по пути http://tms.by открывается index.html 
