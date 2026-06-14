@@ -127,3 +127,49 @@ psql -U admin -h localhost -d laboratory -f ~/git/Vadim_Baltser_DOS35/lesson17_d
 Данные восстановлены:
 
 ![скрин](./screens/l17-6.png)
+
+## Скрипт автоматического бэкапа
+
+Создал скрипт `backup_laboratory.sh` для автоматичксого бэкапа БД.
+
+VM2 (192.168.1.181) выступает в роли удаленного сервера-хранилища бэкапов. На ней создал пользователя под которым будет подключаться VM1, на которой БД. Также создал каталог для бэкапов и утсановил сервер ssh
+
+```bash
+sudo apt install -y openssh-server
+sudo useradd -m backuper
+sudo passwd backuper
+sudo mkdir -p /home/backuper/laboratory
+sudo chown backuper:backuper /home/backuper/laboratory
+```
+
+На VM1 создал ключ-ssh для подключения к VM2:
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/id_rsa -N ""
+ssh-copy-d backuper@192.168.1.181
+```
+
+Проверяю запуск скрипта на VM1:
+
+![скрин](./screens/l17-7.png)
+
+На VM2 появился бэкап:
+
+![скрин](./screens/l17-8.png)
+
+Но pg_dump запрашивает пароль, что не подходит для автоматического бэкапа. Для этого создаю файл с параметрами подключения к БД:
+
+```bash
+echo 'localhost:5432:laboratory:admin:kek' >> ~/.pgpass
+chmod 600 ~/.pgpass
+```
+
+Теперь БД не запрашивает пароль:
+
+![скрин](./screens/l17-9.png)
+
+Добавляю запись в `crontab -e` для автоматического бэкапа:
+
+```
+0 3 * * * /home/vadim/git/Vadim_Baltser_DOS35/lesson17_database/backup_laboratory.sh >> var/log/laboratory_backup.log 2>&1
+```
