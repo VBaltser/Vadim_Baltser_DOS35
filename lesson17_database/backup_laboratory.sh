@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# Чтобы pg_dump не спрашивал пароль, создайте ~/.pgpass (chmod 600):
+#   localhost:5432:laboratory:admin:ВАШ_ПАРОЛЬ
+#
 
 set -euo pipefail
 
@@ -8,11 +12,10 @@ DB_NAME="laboratory"
 DB_USER="admin"
 
 BACKUP_DIR="/home/vadim/backups/laboratory"
-KEEP_LOCAL_BACKUPS=10
 
-REMOTE_USER="backup"
-REMOTE_HOST="192.168.1.100"
-REMOTE_DIR="/home/backup/laboratory"
+REMOTE_USER="backuper"
+REMOTE_HOST="192.168.1.181"
+REMOTE_DIR="/home/backuper/laboratory"
 SSH_KEY="${HOME}/.ssh/id_rsa"
 
 TIMESTAMP="$(date +%Y%m%d_%H%M%S)"
