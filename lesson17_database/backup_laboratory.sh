@@ -1,8 +1,4 @@
 #!/bin/bash
-#
-# Чтобы pg_dump не спрашивал пароль, создайте ~/.pgpass (chmod 600):
-#   localhost:5432:laboratory:admin:ВАШ_ПАРОЛЬ
-#
 
 set -euo pipefail
 
