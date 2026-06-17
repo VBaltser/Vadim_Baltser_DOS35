@@ -6,7 +6,7 @@ VM2 - 192.168.1.202 - replica
 VM3 - 192.168.1.203 - replica
 ```
 
-На VM1 у меня работает БД PostgreSQL с прошлого урока. В этом уроке буду устанавливать на VM2 и VM3 PostgreSQL и настраивать реплику с VM1.
+В этом уроке буду устанавливать на VM1, VM2 и VM3 PostgreSQL и настраивать реплику с VM1.
 
 ## Подготовка на всех VM
 
@@ -230,7 +230,7 @@ sudo -u postgres psql -U patroni -d postgres -c "SELECT client_addr, state, sync
 
 ## Проверки
 
-Имимтация падения мастера на VM1:
+Имитация падения мастера на VM1:
 
 ```bash
 sudo systemctl stop patroni
