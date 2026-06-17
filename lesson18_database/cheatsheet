@@ -1,0 +1,9 @@
+reset:
+
+sudo systemctl stop patroni postgresql
+
+sudo rm -rf /var/lib/postgresql/18/main; sudo mkdir -p /var/lib/postgresql/18/main; sudo chown postgres:postgres /var/lib/postgresql/18/main; sudo chmod 700 /var/lib/postgresql/18/main
+
+sudo chown -R postgres:postgres /etc/patroni; sudo chmod 700 /etc/patroni; sudo chmod 600 /etc/patroni/config.yml
+
+etcdctl --endpoints=http://192.168.1.201:2379,http://192.168.1.202:2379,http://192.168.1.203:2379 del --prefix /db/
