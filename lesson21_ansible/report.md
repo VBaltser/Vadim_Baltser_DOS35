@@ -62,14 +62,15 @@ vm3 ansible_host=192.168.1.203 web_root=/var/www/my_web_site server_name=vm3-ser
 
 ```yml
 ---
-nginx_package: nginx
 web_root: /var/www/my_web_site
 server_name: default-server
 index_file: index.html
 nginx_site_name: my_web_site
 ```
 
-### Template 
+### Template
+
+`roles/create_nginx/templates/nginx-site.conf.j2`
 
 Создал шаблон nginx-config, в котором буду подставляться переданные переменные:
 
@@ -90,6 +91,8 @@ server {
 ```
 
 ### Task
+
+`roles/create_nginx/tasks/main.yml`
 
 Задачи, которые выполняет роль:
 - `install nginx` - Установка nginx
