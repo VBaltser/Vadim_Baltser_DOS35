@@ -58,7 +58,7 @@ vm3 ansible_host=192.168.1.203 web_root=/var/www/my_web_site server_name=vm3-ser
 
 `roles/create_nginx/defaults/main.yml`
 
-В деволтные значения вынес настройки nginx:
+В дефолтные значения вынес настройки nginx:
 
 ```yml
 ---
@@ -72,7 +72,7 @@ nginx_site_name: my_web_site
 
 `roles/create_nginx/templates/nginx-site.conf.j2`
 
-Создал шаблон nginx-config, в котором буду подставляться переданные переменные:
+Создал шаблон nginx-config, в котором будут подставляться переданные переменные:
 
 ```
 server {
