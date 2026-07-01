@@ -88,7 +88,7 @@ IMAGE                    ID             DISK USAGE   CONTENT SIZE   EXTRA
 lesson24-server:latest   76469ce2ddd5        217MB         56.4MB        
 ```
 
-Запсук контейнера:
+Запуск контейнера:
 
 ```bash
 vadim@TMS-UBUNTU-VM1:~/lesson24_docker$ sudo docker run -d -p 8080:8080 --name lesson24-server-container lesson24-server
